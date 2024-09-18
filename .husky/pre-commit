@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running pre-commit hooks..."
+
+# Run ESLint
+echo "Linting..."
+npm run lint
+if [ $? -ne 0 ]; then
+  echo "ESLint found issues. Aborting commit."
+  exit 1
+fi
+
+echo "Pre-commit checks passed."
