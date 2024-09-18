@@ -1,0 +1,25 @@
+{
+  "name": "adt_ts",
+  "version": "0.0.1",
+  "description": "A TypeScript-based library for ADTs (Abstract Data Types)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aneshodza/adt_ts.git"
+  },
+  "keywords": [
+    "ADT"
+  ],
+  "author": "anes hodza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aneshodza/adt_ts/issues"
+  },
+  "homepage": "https://github.com/aneshodza/adt_ts#readme",
+  "dependencies": {
+    "typescript": "^5.6.2"
+  }
+}
