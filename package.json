@@ -11,6 +11,7 @@
     "build:fix": "fix-esm-import-path out/*.js",
     "build:compile": "tsc",
     "build:clean": "rm -rf out",
+    "test": "jest --coverage",
     "develop": "npx tsc --watch --outDir out/"
   },
   "repository": {
@@ -36,6 +37,9 @@
     "eslint-plugin-jsdoc": "^48.2.3",
     "husky": "^9.0.11",
     "typescript-eslint": "^7.6.0",
-    "fix-esm-import-path": "^1.5.0"
+    "fix-esm-import-path": "^1.5.0",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2"
   }
 }
