@@ -6,7 +6,12 @@
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "fix-lint": "eslint 'src/**/*.ts' --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "npm run build:compile && npm run build:fix",
+    "build:fix": "fix-esm-import-path out/*.js",
+    "build:compile": "tsc",
+    "build:clean": "rm -rf out",
+    "develop": "npx tsc --watch --outDir out/"
   },
   "repository": {
     "type": "git",
@@ -30,6 +35,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-jsdoc": "^48.2.3",
     "husky": "^9.0.11",
-    "typescript-eslint": "^7.6.0"
+    "typescript-eslint": "^7.6.0",
+    "fix-esm-import-path": "^1.5.0"
   }
 }
