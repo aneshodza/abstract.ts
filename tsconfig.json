@@ -17,7 +17,12 @@
     "forceConsistentCasingInFileNames": true,
 
     /* Advanced Options */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@test/*": ["test/*"]
+    }
   },
   "exclude": ["node_modules", "test", "examples"],
   "include": ["src/**/*.ts"]
