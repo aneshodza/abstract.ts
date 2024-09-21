@@ -39,7 +39,7 @@ linkedList.reverse() // [3, 10, 2, 4]
 ```
 
 ##### Iterating trough the list
-The `LinkedList` class implements the [`Streamable` interface](./docs/STREAMABLE.md)
+The `LinkedList` class implements the [`Streamable` interface](../STREAMABLE.md)
 ```typescript
 // The list supports iteration
 for (item in linkedList) {
