@@ -6,7 +6,7 @@ import Streamable from "@src/Streamable";
  * It contains a series of nodes that are linked together.
  * This allows for efficient insertion and deletion.
  *
- * @implements the `Streamable` interface
+ * @template T The type of elements contained in each link.
  */
 class LinkedList<T> implements Streamable<T> {
   private head: LinkedNode<T> | undefined;

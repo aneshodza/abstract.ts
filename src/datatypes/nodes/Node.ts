@@ -2,10 +2,13 @@
  * This is a generic node used in many structures.
  * It simply contains a value and a method to retrieve
  * that value.
+ * **Note:** This class is only exposed to make development
+ * easier (testing functionality). It shouldn't be
+ * used in production.
+ * The `BinaryTree` class holds all operations
+ * needed to interact with the tree.
  *
- * This node should never directly be initialized. Instead,
- * it should be inherited from.
- * See `LinkedNode` as an example.
+ * @template T The type of elements contained in each node.
  */
 class Node<T> {
   value: T;
