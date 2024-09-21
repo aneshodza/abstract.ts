@@ -11,6 +11,7 @@ If you have any other version it will probably still work, as only standart feat
 
 ## Currently Supported Datatypes
 - [Linked List](./docs/datatypes/LINKED_LIST.md)
+- [Binary Tree](./docs/datatypes/BINARY_TREE.md)
 
 ## Other links
 - [Changelog](./docs/CHANGELOG.md)

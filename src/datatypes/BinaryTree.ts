@@ -1,5 +1,5 @@
-import Streamable from "@src/datatypes/Streamable";
-import BinaryTreeNode from "./nodes/BinaryTreeNode";
+import Streamable from "@src/Streamable";
+import BinaryTreeNode from "@src/datatypes/nodes/BinaryTreeNode";
 
 /**
  * This is a binary tree data structure.

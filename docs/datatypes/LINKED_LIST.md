@@ -1,5 +1,5 @@
 ## Linked List
-The Linked List is implemented under the classname `LinkedList`.
+The Linked List data structure is implemented under the classname `LinkedList`.
 
 ### Usage
 The implementation supports a wide variety of operations. Below are a few use-cases.
@@ -7,7 +7,7 @@ The implementation supports a wide variety of operations. Below are a few use-ca
 ##### Creating a new list
 ```typescript
 // Creating a linked list
-const linkedList = new LinkedList()<number>;
+const linkedList = new LinkedList<number>();
 ```
 
 ##### Retrieving information about the list
@@ -19,10 +19,10 @@ linkedList.isEmpty()
 linkedList.size()
 
 // Retrieving an element at a specific index
-linkedList.get(3) // 10
+linkedList.get(3)
 ```
 
-##### Mutating the contents of our list
+##### Mutating the contents of the list
 ```typescript
 // Inserting elements at the head
 linkedList.insertAtHead(2); // [2]
@@ -39,10 +39,11 @@ linkedList.reverse() // [3, 10, 2, 4]
 ```
 
 ##### Iterating trough the list
+The `LinkedList` class implements the [`Streamable` interface](./docs/STREAMABLE.md)
 ```typescript
 // The list supports iteration
-for (node in linkedList) {
-    console.log(node.get());
+for (item in linkedList) {
+    console.log(item);
 }
 
 // Alternatively the iterator can be called explicitly
