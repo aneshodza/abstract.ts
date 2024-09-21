@@ -9,7 +9,7 @@
     "prepare": "husky",
     "build": "npm run build:compile && npm run build:fix",
     "build:fix": "fix-esm-import-path out/*.js",
-    "build:compile": "tsc",
+    "build:compile": "tsc --project tsconfig.build.json",
     "build:clean": "rm -rf out",
     "test": "jest --coverage",
     "develop": "npx tsc --watch --outDir out/"

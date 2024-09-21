@@ -92,7 +92,7 @@ test("stream() returns iterator", () => {
   linkedList.insertAtTail(15);
   const array = [0];
   for (const node of linkedList.stream()) {
-    array.push(node.get());
+    array.push(node);
   }
   expect(array).toEqual([0, 5, 10, 15]);
 });
@@ -103,7 +103,7 @@ test("Linked list is iterable", () => {
   linkedList.insertAtTail(15);
   const array = [0];
   for (const node of linkedList) {
-    array.push(node.get());
+    array.push(node);
   }
   expect(array).toEqual([0, 5, 10, 15]);
 });
@@ -115,8 +115,8 @@ test("reverse() reverses the list", () => {
 
   linkedList.reverse();
   const array = [0];
-  for (const node of linkedList.stream()) {
-    array.push(node.get());
+  for (const item of linkedList.stream()) {
+    array.push(item);
   }
   expect(array).toEqual([0, 15, 10, 5]);
 });

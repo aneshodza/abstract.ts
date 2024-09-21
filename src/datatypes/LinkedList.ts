@@ -1,11 +1,14 @@
-import LinkedNode from "./nodes/LinkedNode";
+import LinkedNode from "@src/datatypes/nodes/LinkedNode";
+import Streamable from "@src/datatypes/Streamable";
 
 /**
  * This is a linked list data structure.
  * It contains a series of nodes that are linked together.
  * This allows for efficient insertion and deletion.
+ *
+ * @implements the `Streamable` interface
  */
-class LinkedList<T> {
+class LinkedList<T> implements Streamable<T> {
   private head: LinkedNode<T> | undefined;
 
   /**
@@ -205,10 +208,10 @@ class LinkedList<T> {
    * }
    * ```
    */
-  *stream() {
+  *stream(): Generator<T, void, unknown> {
     let current = this.head;
     while (current !== undefined) {
-      yield current;
+      yield current.get();
       current = current.getNext();
     }
   }
