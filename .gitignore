@@ -29,4 +29,5 @@ coverage/
 # nyc test coverage
 .nyc_output
 
-typedoc/
+typedoc/*
+!typedoc/.gitkeep

@@ -11,7 +11,7 @@
     "build:fix": "fix-esm-import-path out/*.js",
     "build:compile": "tsc --project tsconfig.build.json",
     "build:clean": "rm -rf out; rm -rf typedoc",
-    "build:typedoc": "typedoc",
+    "build:typedoc": "typedoc; touch typedoc/.gitkeep",
     "test": "jest --coverage",
     "develop": "npx tsc --watch --outDir out/"
   },
