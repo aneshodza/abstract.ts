@@ -145,6 +145,8 @@ class BinaryTree<T> implements Streamable<T> {
    * 2. The current node
    * 3. The right subtree
    *
+   * This operation has a time complexity of `O(n)`.
+   *
    * @param node - The starting node for the traversal.
    * @returns A generator yielding the values in the tree in in-order.
    *
@@ -168,6 +170,8 @@ class BinaryTree<T> implements Streamable<T> {
    * 1. The left subtree
    * 2. The current node
    * 3. The right subtree
+   *
+   * This operation has a time complexity of `O(n)`.
    *
    * @param node - The starting node for the traversal.
    * @returns A generator yielding the values in the tree in in-order.
@@ -222,6 +226,8 @@ class BinaryTree<T> implements Streamable<T> {
    * 1. The left subtree
    * 2. The current node
    * 3. The right subtree
+   *
+   * This operation has a time complexity of `O(n)`.
    *
    * @param node - The starting node for the traversal.
    * @returns A generator yielding the values in the tree in in-order.
