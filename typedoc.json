@@ -3,5 +3,6 @@
   "out": "typedoc",
   "exclude": ["**/node_modules/**"],
   "includeVersion": true,
-  "projectDocuments": ["docs/**/*.md"]
+  "projectDocuments": ["docs/**/*.md"],
+  "plugin": ["typedoc-github-theme"]
 }
