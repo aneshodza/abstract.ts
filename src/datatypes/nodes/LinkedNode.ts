@@ -3,6 +3,11 @@ import Node from "./Node";
 /**
  * This is the node subclass used by the `LinkedList` class.
  * It contains a reference to the next node in the list.
+ * **Note:** This class is only exposed to make development
+ * easier (testing functionality). It shouldn't be
+ * used in production.
+ * The `BinaryTree` class holds all operations
+ * needed to interact with the tree.
  *
  * @extends Node
  */

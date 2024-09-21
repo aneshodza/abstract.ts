@@ -11,7 +11,7 @@ import BinaryTreeNode from "@src/datatypes/nodes/BinaryTreeNode";
  * determine the order of the nodes.
  * Equal nodes are left-oriented.
  *
- * @implements the `Streamable` interface
+ * @template T The type of elements contained in each node.
  */
 class BinaryTree<T> implements Streamable<T> {
   private root: BinaryTreeNode<T> | undefined;
@@ -43,7 +43,7 @@ class BinaryTree<T> implements Streamable<T> {
    * This operation has a time complexity of `O(1)`.
    * @param a - The first node to compare.
    * @param b - The second node to compare.
-   * @returns a numers that indicates the result of the comparison.
+   * @returns A number that indicates the result of the comparison.
    * @example
    * ```
    * const tree = new BinaryTree<number>((a, b) => a - b);
@@ -59,8 +59,7 @@ class BinaryTree<T> implements Streamable<T> {
   /**
    * Inserts a new node to the tree
    * This operation has a time complexity of `O(log n)`.
-   * @param value - The value to insert.
-   * @returns The newly created node
+   * @param item - The value to insert.
    * @example
    * ```
    * const tree = new BinaryTree<number>((a, b) => a - b);
@@ -97,6 +96,9 @@ class BinaryTree<T> implements Streamable<T> {
   /**
    * Returns the root node of the tree.
    * This operation has a time complexity of `O(1)`.
+   * **Note:** This function is to make development
+   * easier (testing if insertion went as planned). It shouldn't be
+   * used in production.
    * @returns The root node of the tree.
    * @example
    * ```
@@ -147,9 +149,7 @@ class BinaryTree<T> implements Streamable<T> {
    *
    * This operation has a time complexity of `O(n)`.
    *
-   * @param node - The starting node for the traversal.
    * @returns A generator yielding the values in the tree in in-order.
-   *
    * @example
    * const tree = new BinaryTree<number>((a, b) => a - b);
    * tree.insert(5);
@@ -163,7 +163,7 @@ class BinaryTree<T> implements Streamable<T> {
   *stream(): Generator<T, void, unknown> {
     yield* this.inOrder(this.root);
   }
- 
+
   /**
    * Traverses the binary tree "in order".
    * In an in-order traversal, the tree is recursively traversed by visiting:
@@ -173,7 +173,6 @@ class BinaryTree<T> implements Streamable<T> {
    *
    * This operation has a time complexity of `O(n)`.
    *
-   * @param node - The starting node for the traversal.
    * @returns A generator yielding the values in the tree in in-order.
    *
    * @example
@@ -214,7 +213,7 @@ class BinaryTree<T> implements Streamable<T> {
   /**
    * Checks if the tree is empty.
    * This operation has a time complexity of `O(1)`
-   * @retuns If the tree is empty
+   * @returns If the tree is empty
    * @example
    * ```
    * const tree = new BinaryTree<number>((a, b) => a - b);

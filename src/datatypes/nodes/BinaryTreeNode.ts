@@ -2,9 +2,15 @@ import Node from "./Node";
 
 /**
  * This is the node subclass used by the `BinaryTree` class.
- * It contains a reference to it's left and right child
+ * It contains a reference to it's left and right child.
+ * **Note:** This class is only exposed to make development
+ * easier (testing functionality). It shouldn't be
+ * used in production.
+ * The `BinaryTree` class holds all operations
+ * needed to interact with the tree.
  *
  * @extends Node
+ * @template T The type of elements contained in each node.
  */
 class BinaryTreeNode<T> extends Node<T> {
   private left: BinaryTreeNode<T> | undefined;
@@ -64,10 +70,10 @@ class BinaryTreeNode<T> extends Node<T> {
    * @returns The left child node
    * @example
    * ```
-  * const node = new BinaryTreeNode(5);
-  * const leftChild = new BinaryTreeNode(10);
-  * node.addLeft(leftChild);
-  * node.getLeft(); // leftChild
+   * const node = new BinaryTreeNode(5);
+   * const leftChild = new BinaryTreeNode(10);
+   * node.addLeft(leftChild);
+   * node.getLeft(); // leftChild
    * ```
    */
   getLeft(): BinaryTreeNode<T> | undefined {
@@ -81,10 +87,10 @@ class BinaryTreeNode<T> extends Node<T> {
    * @returns The right child node
    * @example
    * ```
-  * const node = new BinaryTreeNode(5);
-  * const rightChild = new BinaryTreeNode(10);
-  * node.addRight(rightChild);
-  * node.getRight(); // rightChild
+   * const node = new BinaryTreeNode(5);
+   * const rightChild = new BinaryTreeNode(10);
+   * node.addRight(rightChild);
+   * node.getRight(); // rightChild
    * ```
    */
   getRight(): BinaryTreeNode<T> | undefined {
