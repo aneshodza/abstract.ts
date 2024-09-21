@@ -9,7 +9,7 @@ let userD: User;
 let userE: User;
 
 beforeEach(() => {
-  binaryTree = new BinaryTree((a: User, b: User) => a.id - b.id);
+  binaryTree = new BinaryTree<User>((a: User, b: User) => a.id - b.id);
   userA = new User(3, "Alice");
   userB = new User(2, "Bob");
   userC = new User(6, "Charlie");

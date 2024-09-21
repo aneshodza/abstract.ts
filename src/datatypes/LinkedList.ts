@@ -1,5 +1,5 @@
 import LinkedNode from "@src/datatypes/nodes/LinkedNode";
-import Streamable from "@src/datatypes/Streamable";
+import Streamable from "@src/Streamable";
 
 /**
  * This is a linked list data structure.

@@ -1,5 +1,8 @@
 /**
 * An interface for a streamable object.
+* Every ADT that implements this interface can be streamed.
+* Consult the jsdocs of the implementing class for more
+* information on how exactly streaming is implemented.
 */
 interface Streamable<T> {
   /**
