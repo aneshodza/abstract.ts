@@ -203,7 +203,12 @@ class BinaryTree<T> implements Streamable<T> {
    * ```
    */
   size(): number {
-    return 0;
+    let size = 0;
+    for (const _ of this) {
+      size++;
+    }
+
+    return size;
   }
 
   /**

@@ -60,3 +60,28 @@ test("In Order traversal actually gives right order", () => {
 
   expect(items).toEqual([userA, userB, userE, userC, userD]);
 })
+
+test("In Order traversal actually gives right order", () => {
+  binaryTree.insert(userA);
+  binaryTree.insert(userB);
+  binaryTree.insert(userC);
+  binaryTree.insert(userD);
+  binaryTree.insert(userE);
+
+  const items = []
+  for (let item of binaryTree) {
+    items.push(item);
+  }
+
+  expect(items).toEqual([userA, userB, userE, userC, userD]);
+})
+
+test("Size function gives back actual size", () => {
+  binaryTree.insert(userA);
+  binaryTree.insert(userB);
+  binaryTree.insert(userC);
+  binaryTree.insert(userD);
+  binaryTree.insert(userE);
+
+  expect(binaryTree.size()).toBe(5)
+})
