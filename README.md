@@ -10,14 +10,17 @@ This library is currently being tested for:
 If you have any other version it will probably still work, as only standart features are used.
 
 ## Currently Supported Datatypes
-- [Linked List](./docs/datatypes/LINKED_LIST.md)
-- [Binary Tree](./docs/datatypes/BINARY_TREE.md)
+- [Linked List](./docs/classes/datatypes/LINKED_LIST.md)
+- [Binary Tree](./docs/classes/datatypes/BINARY_TREE.md)
+
+## Other Important Links
+- [Streamable (Interface)](./docs/classes/STREAMABLE.md)
 
 ## Other links
-- [Changelog](./docs/CHANGELOG.md)
-- [Contributing](./docs/CONTRIBUTING.md)
-- [Bugs](./docs/BUGS.md)
-- [Feature requests](./docs/FEATURE_REQUESTS.md)
+- [Changelog](./docs/other_links/CHANGELOG.md)
+- [Contributing](./docs/other_links/CONTRIBUTING.md)
+- [Bugs](./docs/other_links/BUGS.md)
+- [Feature requests](./docs/other_links/FEATURE_REQUESTS.md)
 
 #### Credits
 This library was written and published by [Anes Hodza](https://aneshodza.ch)

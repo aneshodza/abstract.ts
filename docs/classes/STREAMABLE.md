@@ -1,4 +1,4 @@
-## The `Streamable` Interface
+## The Streamable Interface
 The `Streamable` interface is implemented by certain datatypes, which allows them to be used in `for-each` loops.
 
 ### Usage

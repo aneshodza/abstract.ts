@@ -2,5 +2,7 @@
   "entryPoints": ["src/index.ts"],
   "out": "typedoc",
   "exclude": ["**/node_modules/**"],
-  "includeVersion": true
+  "includeVersion": true,
+  "projectDocuments": ["docs/**/*.md"],
+  "plugin": ["typedoc-github-theme"]
 }

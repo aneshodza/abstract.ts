@@ -56,7 +56,7 @@ binaryTree.insert(user4);
 ```
 
 ##### Iterating trough the tree
-The `BinaryTree` class implements the [`Streamable` interface](./docs/STREAMABLE.md)
+The `BinaryTree` class implements the [`Streamable` interface](../STREAMABLE.md)
 ```typescript
 // The tree supports iteration
 for (user in binaryTree) {
