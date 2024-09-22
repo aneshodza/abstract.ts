@@ -1,4 +1,4 @@
-import Stack from "@src/datatypes/Stack";
+import Stack from "@src/datatypes/linked_list_wrappers/Stack";
 
 let stack: Stack<number>;
 beforeEach(() => {

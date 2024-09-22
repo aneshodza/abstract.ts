@@ -1,5 +1,5 @@
-import QueueNode from "@src/datatypes/nodes/QueueNode";
 import Streamable from "@src/Streamable";
+import LinkedList from "@src/datatypes/LinkedList";
 
 /**
  * This is a Queue data structure.
@@ -9,7 +9,18 @@ import Streamable from "@src/Streamable";
  * last.
  */
 class Queue<T> implements Streamable<T> {
-  private head: QueueNode<T> | undefined;
+  private linkedList: LinkedList<T>;
+
+  /**
+   * Creates a new Queue
+   * @example
+   * ```
+   * const queue = new Queue<number>();
+   * ```
+   */
+  constructor() {
+    this.linkedList = new LinkedList<T>();
+  }
 
   /**
    * Adds an item to the end of the queue.
@@ -24,20 +35,7 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   enqueue(item: T) {
-    const node = this.#createNode(item);
-    let current = this.head;
-
-    if (current === undefined) {
-      this.head = node;
-      return;
-    }
-
-    let old = current;
-    while (current !== undefined) {
-      old = current;
-      current = current.getNext();
-    }
-    old.linkNode(node);
+    this.linkedList.insertAtTail(item);
   }
 
   /**
@@ -53,28 +51,26 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   dequeue() {
-    const first = this.head;
-    if (first === undefined) {
+    try {
+      return this.linkedList.removeAtHead();
+    } catch (e) {
       throw new Error("Queue is empty!");
     }
-
-    this.head = first.getNext();
-    return first.get();
   }
 
   /**
-  * Peeks at the item at the front of the queue.
-  * This operation has a time complexity of `O(1)`.
-  * @returns The item at the front of the queue.
-  * @example
-  * ```
-  * const queue = new Queue<number>();
-  * queue.enqueue(5);
-  * queue.peek(); // 5
-  * ```
-  */
+   * Peeks at the item at the front of the queue.
+   * This operation has a time complexity of `O(1)`.
+   * @returns The item at the front of the queue.
+   * @example
+   * ```
+   * const queue = new Queue<number>();
+   * queue.enqueue(5);
+   * queue.peek(); // 5
+   * ```
+   */
   peek() {
-    return this.head?.get();
+    return this.linkedList.getHead();
   }
 
   /**
@@ -91,7 +87,7 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   isEmpty() {
-    return this.head === undefined;
+    return this.linkedList.isEmpty();
   }
 
   /**
@@ -132,10 +128,6 @@ class Queue<T> implements Streamable<T> {
    */
   *[Symbol.iterator]() {
     yield* this.stream();
-  }
-
-  #createNode(item: T) {
-    return new QueueNode(item);
   }
 }
 
