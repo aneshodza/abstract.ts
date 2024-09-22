@@ -1,6 +1,17 @@
 import DoublyLinkedNode from "@src/datatypes/nodes/DoublyLinkedNode";
 import LinkedList from "@src/datatypes/LinkedList";
 
+/**
+ * This is a doubly linked list data structure.
+ * It contains a series of nodes that are linked together.
+ * This allows for efficient insertion and deletion.
+ * The benefit of a doubly linked list compared to a singly linked list
+ * is that it allows for traversal in both directions.
+ * This reducses the time complexity of certain operations.
+ *
+ * @extends LinkedList
+ * @template T The type of elements contained in each link.
+ */
 class DoublyLinkedList<T> extends LinkedList<T> {
   private tail: DoublyLinkedNode<T> | undefined;
 
@@ -121,6 +132,8 @@ class DoublyLinkedList<T> extends LinkedList<T> {
   /**
    * Allows the linked list to be streamed back in order.
    * This operation has a time complexity of `O(n)`.
+   * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
    * ```
    * linkedList.insertAtHead(5);

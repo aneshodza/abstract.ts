@@ -7,6 +7,8 @@ import LinkedList from "@src/datatypes/LinkedList";
  * This allows for efficient insertion and deletion at the top.
  * The Queue uses a linked list to store the elements, which allows
  * for low time complexities on all operations.
+ *
+ * @typeparam T - The type of the value stored in the stack.
  */
 class Stack<T> implements Streamable<T> {
   private linkedList: LinkedList<T>;
@@ -91,6 +93,8 @@ class Stack<T> implements Streamable<T> {
    * This operation has a time complexity of `O(n)`.
    * **Important:** This also pops the returned elements
    * from the stack as they are streamed.
+   * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
    * ```
    * const stack = new Stack<number>();
@@ -113,6 +117,8 @@ class Stack<T> implements Streamable<T> {
    * This operation has a time complexity of `O(n)`.
    * **Important:** This also pops the returned elements
    * from the stack as they are streamed.
+   * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
    * ```
    * const stack = new Stack<number>();

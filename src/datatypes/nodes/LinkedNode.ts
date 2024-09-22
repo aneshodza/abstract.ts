@@ -1,4 +1,4 @@
-import Node from '@src/datatypes/nodes/Node';
+import Node from "@src/datatypes/nodes/Node";
 
 /**
  * This is the node subclass used by the `LinkedList` class.
@@ -10,6 +10,7 @@ import Node from '@src/datatypes/nodes/Node';
  * needed to interact with the tree.
  *
  * @extends Node
+ * @typeparam T - The type of the value stored in the node.
  */
 class LinkedNode<T> extends Node<T> {
   private next: LinkedNode<T> | undefined;
