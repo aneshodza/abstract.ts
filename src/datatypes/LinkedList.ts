@@ -12,6 +12,21 @@ class LinkedList<T> implements Streamable<T> {
   private head: LinkedNode<T> | undefined;
 
   /**
+  * Gets the head of the linked list.
+  * This operation has a time complexity of `O(1)`.
+  * @returns The head of the linked list.
+  * @example
+  * ```
+  * const linkedList = new LinkedList<number>();
+  * linkedList.insertAtHead(5);
+  * linkedList.getHead(); // 5
+  * ```
+  */
+  getHead() {
+    return this.head?.get();
+  }
+
+  /**
    * Gets a node at a specific index.
    * This operation has a time complexity of `O(n)`.
    *
@@ -21,7 +36,7 @@ class LinkedList<T> implements Streamable<T> {
    * ```
    * const linkedList = new LinkedList<number>();
    * linkedList.insertAtHead(5);
-   * linkedList.get(0)!.get(); // 5
+   * linkedList.get(0); // 5
    * ```
    */
   get(index: number) {
@@ -37,7 +52,7 @@ class LinkedList<T> implements Streamable<T> {
     if (current === undefined) {
       throw new Error("Index too far!");
     }
-    return current;
+    return current.get();
   }
 
   /**
@@ -75,7 +90,7 @@ class LinkedList<T> implements Streamable<T> {
    * ```
    * const linkedList = new LinkedList<number>();
    * linkedList.insertAtHead(5);
-   * linkedList.get(0)!.get(); // 5
+   * linkedList.get(0); // 5
    * ```
    */
   insertAtHead(item: T) {
@@ -98,8 +113,8 @@ class LinkedList<T> implements Streamable<T> {
    * linkedList.insertAtHead(5);
    * linkedList.insertAtTail(3);
    * linkedList.insertAtIndex(1, 10);
-   * linkedList.get(1)!.get(); // 10
-   * linkedList.get(2)!.get(); // 3
+   * linkedList.get(1); // 10
+   * linkedList.get(2); // 3
    * ```
    */
   insertAtIndex(index: number, item: T) {
@@ -195,6 +210,26 @@ class LinkedList<T> implements Streamable<T> {
   }
 
   /**
+  * Removes the node at the head of the linked list.
+  * This operation has a time complexity of `O(1)`.
+  * @returns The item at the head of the linked list.
+  * @example
+  * ```
+  * const linkedList = new LinkedList<number>();
+  * linkedList.insertAtHead(5);
+  * linkedList.removeAtHead(); // 5
+  * ```
+  */
+  removeAtHead() {
+    if (this.head === undefined) {
+      throw new Error("Linked list is empty!");
+    }
+    const node = this.head;
+    this.head = this.head.getNext();
+    return node.get();
+  }
+
+  /**
    * Returns an iterator containing all the items in the linked list.
    * This operation has a time complexity of `O(n)`.
    * @returns An array of all the items in the linked list.
@@ -204,7 +239,7 @@ class LinkedList<T> implements Streamable<T> {
    * linkedList.insertAtHead(5);
    * linkedList.insertAtHead(10);
    * for (const item of linkedList.stream()) {
-   *   console.log(item.get()); // 10, 5
+   *   console.log(item); // 10, 5
    * }
    * ```
    */
@@ -226,7 +261,7 @@ class LinkedList<T> implements Streamable<T> {
    * linkedList.insertAtHead(5);
    * linkedList.insertAtHead(10);
    * for (const item of linkedList) {
-   *   console.log(item.get()); // 10, 5
+   *   console.log(item); // 10, 5
    * }
    * ```
    */

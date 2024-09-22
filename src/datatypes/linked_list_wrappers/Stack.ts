@@ -1,5 +1,5 @@
-import StackNode from "@src/datatypes/nodes/StackNode";
 import Streamable from "@src/Streamable";
+import LinkedList from "@src/datatypes/LinkedList";
 
 /**
  * This is a Stack data structure.
@@ -9,7 +9,18 @@ import Streamable from "@src/Streamable";
  * @template T The type of elements contained in each link.
  */
 class Stack<T> implements Streamable<T> {
-  private top: StackNode<T> | undefined;
+  private linkedList: LinkedList<T>;
+
+  /**
+   * Creates a new Stack
+   * @example
+   * ```
+   * const stack = new Stack<number>();
+   * ```
+   */
+  constructor() {
+    this.linkedList = new LinkedList<T>();
+  }
 
   /**
    * Pushes a new node to the top of the stack.
@@ -22,15 +33,7 @@ class Stack<T> implements Streamable<T> {
    * ```
    */
   push(item: T) {
-    const node = this.#createNode(item);
-    const oldTop = this.top;
-
-    if (oldTop === undefined) {
-      this.top = node;
-    } else {
-      this.top = node;
-      node.linkNode(oldTop);
-    }
+    this.linkedList.insertAtHead(item);
   }
 
   /**
@@ -45,12 +48,11 @@ class Stack<T> implements Streamable<T> {
    * ```
    */
   pop() {
-    const oldTop = this.top;
-    if (oldTop === undefined) {
+    try {
+      return this.linkedList.removeAtHead();
+    } catch (e) {
       throw new Error("Stack is empty!");
     }
-    this.top = oldTop.getNext();
-    return oldTop.get();
   }
 
   /**
@@ -65,9 +67,7 @@ class Stack<T> implements Streamable<T> {
    * ```
    */
   peek() {
-    if (this.top !== undefined) {
-      return this.top.get();
-    }
+    return this.linkedList.getHead();
   }
 
   /**
@@ -83,7 +83,7 @@ class Stack<T> implements Streamable<T> {
    * ```
    */
   isEmpty() {
-    return this.top === undefined;
+    return this.linkedList.isEmpty();
   }
 
   /**
@@ -126,10 +126,6 @@ class Stack<T> implements Streamable<T> {
    */
   *[Symbol.iterator]() {
     yield* this.stream();
-  }
-
-  #createNode(item: T) {
-    return new StackNode(item);
   }
 }
 
