@@ -38,10 +38,10 @@ class LinkedNode<T> extends Node<T> {
    * ```
    * const node = new LinkedNode(5);
    * const nextNode = new LinkedNode(10);
-   * node.linkNode(nextNode);
+   * node.linkNext(nextNode);
    * ```
    */
-  linkNode(next: LinkedNode<T> | undefined) {
+  linkNext(next: LinkedNode<T> | undefined) {
     this.next = next;
   }
 
@@ -54,7 +54,7 @@ class LinkedNode<T> extends Node<T> {
    * ```
    * const node = new LinkedNode(5);
    * const nextNode = new LinkedNode(10);
-   * node.linkNode(nextNode);
+   * node.linkNext(nextNode);
    * node.getNext(); // nextNode
    * ```
    */

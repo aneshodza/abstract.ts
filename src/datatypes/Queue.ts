@@ -1,5 +1,5 @@
 import Streamable from "@src/Streamable";
-import LinkedList from "@src/datatypes/LinkedList";
+import DoublyLinkedList from "@src/datatypes/DoublyLinkedList";
 
 /**
  * This is a Queue data structure.
@@ -7,9 +7,11 @@ import LinkedList from "@src/datatypes/LinkedList";
  * The Queue implements the LILO (Last in Last out) data structure,
  * meaning that the element first added to the list is also removed
  * last.
+ * The Queue uses a doubly linked list to store the elements, meaning
+ * the enqueing has a time-complexity of `O(1)`
  */
 class Queue<T> implements Streamable<T> {
-  private linkedList: LinkedList<T>;
+  private doublyLinkedList: DoublyLinkedList<T>;
 
   /**
    * Creates a new Queue
@@ -19,12 +21,13 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   constructor() {
-    this.linkedList = new LinkedList<T>();
+    this.doublyLinkedList = new DoublyLinkedList<T>();
   }
 
   /**
    * Adds an item to the end of the queue.
-   * This operation has a time complexity of `O(n)`.
+   * This operation has a time complexity of `O(1)` as
+   * it uses a doubly linked list.
    *
    * @param item - The item to add to the queue.
    * @example
@@ -35,7 +38,7 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   enqueue(item: T) {
-    this.linkedList.insertAtTail(item);
+    this.doublyLinkedList.insertAtTail(item);
   }
 
   /**
@@ -52,7 +55,7 @@ class Queue<T> implements Streamable<T> {
    */
   dequeue() {
     try {
-      return this.linkedList.removeAtHead();
+      return this.doublyLinkedList.removeAtHead();
     } catch (e) {
       throw new Error("Queue is empty!");
     }
@@ -70,7 +73,7 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   peek() {
-    return this.linkedList.getHead();
+    return this.doublyLinkedList.getHead();
   }
 
   /**
@@ -87,7 +90,7 @@ class Queue<T> implements Streamable<T> {
    * ```
    */
   isEmpty() {
-    return this.linkedList.isEmpty();
+    return this.doublyLinkedList.isEmpty();
   }
 
   /**

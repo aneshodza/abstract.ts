@@ -11,6 +11,7 @@ If you have any other version it will probably still work, as only standart feat
 
 ## Currently Supported Datatypes
 - [Linked List](./docs/classes/datatypes/LINKED_LIST.md)
+- [Doubly Linked List](./docs/classes/datatypes/LINKED_LIST.md)
 - [Binary Tree](./docs/classes/datatypes/BINARY_TREE.md)
 - [Stack](./docs/classes/datatypes/STACK.md)
 - [Queue](./docs/classes/datatypes/QUEUE.md)

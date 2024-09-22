@@ -74,6 +74,12 @@ test("Insert at index 0", () => {
   expect(linkedList.get(0)).toBe(5);
 });
 
+test("Insert at index 1, when length is 1", () => {
+  linkedList.insertAtIndex(0, 5);
+  linkedList.insertAtIndex(1, 10);
+  expect(linkedList.get(1)).toBe(10);
+});
+
 test("Insert at index thats too far throws error", () => {
   expect(() => linkedList.insertAtIndex(1, 5)).toThrow("Index too far!");
 });

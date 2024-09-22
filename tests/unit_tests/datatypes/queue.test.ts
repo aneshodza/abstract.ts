@@ -1,4 +1,4 @@
-import Queue from "@src/datatypes/linked_list_wrappers/Queue";
+import Queue from "@src/datatypes/Queue";
 
 let queue: Queue<number>;
 

@@ -2,6 +2,7 @@
 The Stack data structure is implemented under the classname `Stack`.  
 It fully works under LIFO (First in First out), which means the API only
 exposes pushing and popping.
+This uses a Linked List in the background.
 
 ### Usage
 The implementation supports a wide variaty of operations. Below are a few use-cases.

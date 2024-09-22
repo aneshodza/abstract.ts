@@ -8,6 +8,6 @@ beforeEach(() => {
 });
 
 test("Successfully links node", () => {
-  linkedNode.linkNode(nextNode);
+  linkedNode.linkNext(nextNode);
   expect(linkedNode.getNext()).toBe(nextNode);
 });
