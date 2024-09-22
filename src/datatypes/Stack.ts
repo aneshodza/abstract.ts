@@ -2,7 +2,7 @@ import StackNode from "@src/datatypes/nodes/StackNode";
 import Streamable from "@src/Streamable";
 
 /**
- * This is a stack data structure.
+ * This is a Stack data structure.
  * It contains a series of nodes that are linked together.
  * This allows for efficient insertion and deletion at the top.
  *

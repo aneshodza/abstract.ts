@@ -17,7 +17,7 @@ const stack = new Stack<number>();
 // Checking if the stack is empty
 stack.isEmpty();
 
-// Peeking the first element:
+// Peeking the first element
 stack.peek();
 ```
 
@@ -25,9 +25,10 @@ stack.peek();
 ```typescript
 // Pushing a new element to the top:
 stack.push(10);
+stack.push(5)
 
 // Popping that same element off of the stack:
-stack.pop(10);
+stack.pop(); // 5
 ```
 
 ##### Iterating trough the Stack

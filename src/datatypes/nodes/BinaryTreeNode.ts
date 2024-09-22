@@ -1,4 +1,4 @@
-import Node from "./Node";
+import Node from '@src/datatypes/nodes/Node';
 
 /**
  * This is the node subclass used by the `BinaryTree` class.
