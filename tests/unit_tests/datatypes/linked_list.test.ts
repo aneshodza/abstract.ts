@@ -13,7 +13,7 @@ test("Inserts successfully at head and also gets value", () => {
 test("getHead() returns value when head defined", () => {
   linkedList.insertAtHead(5);
   linkedList.insertAtHead(6);
-  expect(linkedList.getHead()).toBe(5);
+  expect(linkedList.getHead()).toBe(6);
 });
 
 test("getHead() returns undefined when empty", () => {
