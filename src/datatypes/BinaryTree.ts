@@ -150,7 +150,9 @@ class BinaryTree<T> implements Streamable<T> {
    * This operation has a time complexity of `O(n)`.
    *
    * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
+   * ```
    * const tree = new BinaryTree<number>((a, b) => a - b);
    * tree.insert(5);
    * tree.insert(3);
@@ -159,6 +161,7 @@ class BinaryTree<T> implements Streamable<T> {
    * for (const value of tree.inOrder(tree.getRoot())) {
    *   console.log(value); // Logs 3, 5, 7
    * }
+   * ```
    */
   *stream(): Generator<T, void, unknown> {
     yield* this.inOrder(this.root);
@@ -174,8 +177,9 @@ class BinaryTree<T> implements Streamable<T> {
    * This operation has a time complexity of `O(n)`.
    *
    * @returns A generator yielding the values in the tree in in-order.
-   *
+   * @yields The next item in the linked list.
    * @example
+   * ```
    * const tree = new BinaryTree<number>((a, b) => a - b);
    * tree.insert(5);
    * tree.insert(3);
@@ -184,6 +188,7 @@ class BinaryTree<T> implements Streamable<T> {
    * for (const value of tree.inOrder(tree.getRoot())) {
    *   console.log(value); // Logs 3, 5, 7
    * }
+   * ```
    */
   *[Symbol.iterator]() {
     yield* this.inOrder(this.root);

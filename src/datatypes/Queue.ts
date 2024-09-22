@@ -9,6 +9,8 @@ import DoublyLinkedList from "@src/datatypes/DoublyLinkedList";
  * last.
  * The Queue uses a doubly linked list to store the elements, meaning
  * the enqueing has a time-complexity of `O(1)`
+ *
+ * @typeparam T - The type of the value stored in the queue.
  */
 class Queue<T> implements Streamable<T> {
   private doublyLinkedList: DoublyLinkedList<T>;
@@ -97,6 +99,8 @@ class Queue<T> implements Streamable<T> {
    * Streams the items in the queue.
    * This operation has a time complexity of `O(n)`.
    * **Important:** This operation consumes the queue.
+   * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
    * ```
    * const queue = new Queue<number>();
@@ -118,6 +122,8 @@ class Queue<T> implements Streamable<T> {
    * Streams the items in the queue.
    * This operation has a time complexity of `O(n)`.
    * **Important:** This operation consumes the queue.
+   * @returns A generator yielding the values in the tree in in-order.
+   * @yields The next item in the linked list.
    * @example
    * ```
    * const queue = new Queue<number>();

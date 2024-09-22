@@ -3,6 +3,8 @@
 * Every ADT that implements this interface can be streamed.
 * Consult the jsdocs of the implementing class for more
 * information on how exactly streaming is implemented.
+*
+* @typeparam T - The type of the yielded value.
 */
 interface Streamable<T> {
   /**
