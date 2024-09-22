@@ -1,4 +1,4 @@
-import Node from "./Node";
+import Node from '@src/datatypes/nodes/Node';
 
 /**
  * Represents a node in a `Stack` data structure.
