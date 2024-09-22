@@ -5,8 +5,8 @@ import LinkedList from "@src/datatypes/LinkedList";
  * This is a Stack data structure.
  * It contains a series of nodes that are linked together.
  * This allows for efficient insertion and deletion at the top.
- *
- * @template T The type of elements contained in each link.
+ * The Queue uses a linked list to store the elements, which allows
+ * for low time complexities on all operations.
  */
 class Stack<T> implements Streamable<T> {
   private linkedList: LinkedList<T>;

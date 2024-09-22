@@ -1,7 +1,8 @@
 ## Queue
 The Queue data structure is implemented under the classname `Queue`.
 It fully works under FIFO (First in First out), which means the API only
-exposes queuing and dequeuing.
+exposes queuing and dequeuing.  
+This uses a Doubly Linked List in the background.
 
 ### Usage
 The implementation supports a wide variety of operations. Below are a few use-cases.
