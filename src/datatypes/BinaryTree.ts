@@ -265,6 +265,10 @@ class BinaryTree<T> implements Streamable<T> {
     }
   }
 
+  protected setRoot(node: BinaryTreeNode<T>) {
+    this.root = node;
+  }
+
   #createNode(item: T) {
     return new BinaryTreeNode(item);
   }

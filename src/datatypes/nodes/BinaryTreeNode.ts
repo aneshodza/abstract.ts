@@ -38,8 +38,6 @@ class BinaryTreeNode<T> extends Node<T> {
    * @param left - The left child of the node.
    * @example
    * ```
-   * const node = new BinaryTreeNode(5);
-   * const leftChild = new BinaryTreeNode(10);
    * node.addLeft(leftChild);
    * ```
    */
@@ -54,8 +52,6 @@ class BinaryTreeNode<T> extends Node<T> {
    * @param right - The right child of the node.
    * @example
    * ```
-   * const node = new BinaryTreeNode(5);
-   * const rightChild = new BinaryTreeNode(10);
    * node.addRight(rightChild);
    * ```
    */
@@ -70,8 +66,6 @@ class BinaryTreeNode<T> extends Node<T> {
    * @returns The left child node
    * @example
    * ```
-   * const node = new BinaryTreeNode(5);
-   * const leftChild = new BinaryTreeNode(10);
    * node.addLeft(leftChild);
    * node.getLeft(); // leftChild
    * ```
@@ -87,8 +81,6 @@ class BinaryTreeNode<T> extends Node<T> {
    * @returns The right child node
    * @example
    * ```
-   * const node = new BinaryTreeNode(5);
-   * const rightChild = new BinaryTreeNode(10);
    * node.addRight(rightChild);
    * node.getRight(); // rightChild
    * ```
