@@ -1,6 +1,6 @@
 {
-  "name": "adt.ts",
-  "version": "0.0.1",
+  "name": "abstract.ts",
+  "version": "1.0.0",
   "description": "A TypeScript-based library for ADTs (Abstract Data Types)",
   "main": "index.js",
   "scripts": {
