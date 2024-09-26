@@ -1,8 +1,12 @@
 {
   "name": "abstract.ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A TypeScript-based library for ADTs (Abstract Data Types)",
-  "main": "index.js",
+  "main": "out/index.js",
+  "types": "out/index.d.ts",
+  "files": [
+    "out/**/*"
+  ],
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "fix-lint": "eslint 'src/**/*.ts' --fix",
