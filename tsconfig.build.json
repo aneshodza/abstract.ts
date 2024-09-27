@@ -15,10 +15,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@tests/*": ["tests/*"]
-    },
-    "plugins": [
-      { "transform": "typescript-transform-paths" }
-    ]
+    }
   },
   "exclude": ["node_modules", "tests", "examples"],
   "include": ["src/**/*"]

@@ -12,7 +12,7 @@
     "fix-lint": "eslint 'src/**/*.ts' --fix",
     "prepare": "husky",
     "build": "npm run build:typedoc && npm run build:compile && npm run build:fix",
-    "build:fix": " tscpaths -p tsconfig.json -s ./src -o ./out && fix-esm-import-path out/*.js",
+    "build:fix": "tscpaths -p tsconfig.json -s ./src -o ./out && fix-esm-import-path out/*.js",
     "build:compile": "tsc --project tsconfig.build.json",
     "build:clean": "rm -rf out; rm -rf typedoc",
     "build:typedoc": "typedoc; touch typedoc/.gitkeep",
