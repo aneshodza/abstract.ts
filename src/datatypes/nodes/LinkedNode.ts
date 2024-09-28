@@ -13,7 +13,7 @@ import Node from "@src/datatypes/nodes/Node";
  * @typeparam T - The type of the value stored in the node.
  */
 class LinkedNode<T> extends Node<T> {
-  private next: LinkedNode<T> | undefined;
+  private next: LinkedNode<T> | null;
 
   /**
    * Creates a new node with the given value.
@@ -28,6 +28,7 @@ class LinkedNode<T> extends Node<T> {
    */
   constructor(value: T) {
     super(value);
+    this.next = null;
   }
 
   /**
@@ -43,6 +44,10 @@ class LinkedNode<T> extends Node<T> {
    * ```
    */
   linkNext(next: LinkedNode<T> | undefined) {
+    if (next === undefined) {
+      this.next = null;
+      return
+    }
     this.next = next;
   }
 
@@ -59,7 +64,7 @@ class LinkedNode<T> extends Node<T> {
    * node.getNext(); // nextNode
    * ```
    */
-  getNext(): LinkedNode<T> | undefined {
+  getNext(): LinkedNode<T> | null {
     return this.next;
   }
 }
