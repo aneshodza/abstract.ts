@@ -1,4 +1,5 @@
 import BinaryTreeNode from "@src/datatypes/nodes/BinaryTreeNode";
+import LinkedList from "../LinkedList";
 
 /**
  * This is the node subclass used by the `AVLTree` class.
@@ -17,6 +18,7 @@ import BinaryTreeNode from "@src/datatypes/nodes/BinaryTreeNode";
  */
 class AVLTreeNode<T> extends BinaryTreeNode<T> {
   private height: number;
+  private values: LinkedList<T>;
 
   /**
    * Creates a new node with the given value. It defaults
@@ -33,6 +35,8 @@ class AVLTreeNode<T> extends BinaryTreeNode<T> {
   constructor(value: T) {
     super(value);
     this.height = 1;
+    this.values = new LinkedList();
+    this.values.insertAtHead(value);
   }
 
   /**
@@ -63,22 +67,49 @@ class AVLTreeNode<T> extends BinaryTreeNode<T> {
   }
 
   /**
-   * Gets the balance factor of the node.
+   * Sets the height of the node.
    * This operation has a time complexity of `O(1)`.
-   * Following balance factor rules:
-   * - Balance factor > 1: Left heavy
-   * - Balance factor < -1: Right heavy
-   * - Balance factor = 0: Balanced
-   *
-   * @returns The balance factor of the node.
+   * @param height - The height to set.
    * @example
    * ```
-   * const balanceFactor = node.getBalanceFactor();
+   * node.setHeight(5);
    * ```
    */
-  getBalanceFactor() {
-    const { left, right } = this.#getSubtreeHeights();
-    return left - right;
+  setHeight(height: number) {
+    this.height = height;
+  }
+
+  /**
+   * Adds an additional value to the node. This method is used
+   * in the AVL Tree to handle duplicate values.
+   * @param value - The value to add to the node.
+   * @example
+   * ```
+   * const node = new AVLTreeNode(5);
+   * node.addValue(7); // Now the node holds 2 values.
+   * ```
+   */
+  add(value: T) {
+    this.values.insertAtHead(value);
+  }
+
+  /**
+   * Streams all of the node's other values.
+   * This operation has a time complexity of `O(n)`.
+   * @returns A generator yielding the values in the list.
+   * @yields The next value in `other`
+   * @example
+   * ```
+   * const node = new AVLTreeNode(5);
+   * node.addValue(7);
+   * node.addValue(10);
+   * for (const value of node.stream()) {
+   *  console.log(value); // 5, 7, 10
+   *  }
+   * ```
+   */
+  *stream() {
+    yield* this.values.stream();
   }
 
   #getSubtreeHeights() {
@@ -86,8 +117,8 @@ class AVLTreeNode<T> extends BinaryTreeNode<T> {
     const rightNode = this.getRight() as AVLTreeNode<T> | undefined;
     return {
       left: (leftNode?.getHeight() ?? 0),
-      right: (rightNode?.getHeight() ?? 0)
-    }
+      right: (rightNode?.getHeight() ?? 0),
+    };
   }
 }
 

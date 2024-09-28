@@ -263,7 +263,7 @@ class LinkedList<T> implements Streamable<T> {
   /**
    * Returns an iterator containing all the items in the linked list.
    * This operation has a time complexity of `O(n)`.
-   * @returns A generator yielding the values in the tree in in-order.
+   * @returns A generator yielding the values in the list.
    * @yields The next item in the linked list.
    * @example
    * ```
