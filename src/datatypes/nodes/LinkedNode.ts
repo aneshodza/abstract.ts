@@ -43,11 +43,7 @@ class LinkedNode<T> extends Node<T> {
    * node.linkNext(nextNode);
    * ```
    */
-  linkNext(next: LinkedNode<T> | undefined) {
-    if (next === undefined) {
-      this.next = null;
-      return
-    }
+  linkNext(next: LinkedNode<T> | null) {
     this.next = next;
   }
 

@@ -13,7 +13,19 @@ import LinkedList from "@src/datatypes/LinkedList";
  * @template T The type of elements contained in each link.
  */
 class DoublyLinkedList<T> extends LinkedList<T> {
-  private tail: DoublyLinkedNode<T> | undefined;
+  private tail: DoublyLinkedNode<T> | null;
+
+  /**
+   * Creates a new doubly linked list
+   * @example
+   * ```
+   * const linkedList = new DoublyLinkedList();
+   * ```
+   */
+  constructor() {
+    super();
+    this.tail = null;
+  }
 
   /**
    * Gets the tail of the linked list.
@@ -102,7 +114,7 @@ class DoublyLinkedList<T> extends LinkedList<T> {
     }
 
     const node = this.#createNode(item);
-    let current: DoublyLinkedNode<T> | undefined = super
+    let current: DoublyLinkedNode<T> | null = super
       .getHeadNode() as DoublyLinkedNode<T>;
     let headOfCurrent;
 
@@ -110,8 +122,8 @@ class DoublyLinkedList<T> extends LinkedList<T> {
       headOfCurrent = current;
       current = current.getNext();
 
-      if (current === undefined) {
-        if (i + 1 === index && headOfCurrent !== undefined) {
+      if (current === null) {
+        if (i + 1 === index && headOfCurrent !== null) {
           headOfCurrent.linkNext(node);
           node.linkPrevious(headOfCurrent);
           this.tail = node;
@@ -145,7 +157,7 @@ class DoublyLinkedList<T> extends LinkedList<T> {
    */
   *streamBackwards() {
     let current = this.tail;
-    while (current !== undefined) {
+    while (current !== null) {
       yield current.get();
       current = current.getPrevious();
     }

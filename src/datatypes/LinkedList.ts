@@ -55,7 +55,7 @@ class LinkedList<T> implements Streamable<T> {
     return this.#doGet(index, this.head);
   }
 
-  #doGet(index: number, current: LinkedNode<T> | null = this.head): T {
+  #doGet(index: number, current: LinkedNode<T> | null): T {
     if (current === null) {
       throw new Error("Index too far!");
     } else if (index === 0) {
@@ -85,7 +85,7 @@ class LinkedList<T> implements Streamable<T> {
     this.#doInsertAtTail(item, this.head);
   }
 
-  #doInsertAtTail(item: T, current: LinkedNode<T> | null = this.head): void {
+  #doInsertAtTail(item: T, current: LinkedNode<T> | null): void {
     if (current!.getNext() === null) {
       current!.linkNext(this.#createNode(item));
       return;
@@ -136,26 +136,29 @@ class LinkedList<T> implements Streamable<T> {
       return;
     }
 
-    const newNode = this.#createNode(item);
-    let currentNode: LinkedNode<T> | null = this.head;
-    let headOfCurrent: LinkedNode<T> | null = null;
+    this.#doInsertAtIndex(index, item, this.head, null);
+  }
 
-    for (let i = 0; i < index; i++) {
-      headOfCurrent = currentNode!;
-      currentNode = currentNode?.getNext() || null;
-
-      if (currentNode === null) {
-        if (i + 1 === index && headOfCurrent !== null) {
-          headOfCurrent.linkNext(newNode);
-          return;
-        } else {
-          throw new Error("Index too far!");
-        }
+  #doInsertAtIndex(
+    index: number,
+    item: T,
+    current: LinkedNode<T> | null,
+    headOfCurrent: LinkedNode<T> | null,
+  ): void {
+    if (current === null) {
+      if (index === 0 && headOfCurrent !== null) {
+        headOfCurrent.linkNext(this.#createNode(item));
+        return;
       }
+      throw new Error("Index too far!");
+    } else if (index === 0) {
+      const newNode = this.#createNode(item);
+      newNode.linkNext(current);
+      headOfCurrent!.linkNext(newNode);
+      return;
     }
-
-    newNode.linkNext(currentNode!);
-    headOfCurrent!.linkNext(newNode);
+    this.#doInsertAtIndex(index - 1, item, current.getNext(), current);
+    return;
   }
 
   /**
@@ -189,13 +192,14 @@ class LinkedList<T> implements Streamable<T> {
    * ```
    */
   size() {
-    let current = this.head;
-    let count = 0;
-    while (current !== null) {
-      count++;
-      current = current.getNext();
+    return this.#doSize(this.head);
+  }
+
+  #doSize(current: LinkedNode<T> | null): number {
+    if (current === null) {
+      return 0;
     }
-    return count;
+    return 1 + this.#doSize(current.getNext());
   }
 
   /**
@@ -212,22 +216,21 @@ class LinkedList<T> implements Streamable<T> {
    * ```
    */
   reverse() {
-    if (this.isEmpty()) {
+    this.#doReverse(this.head);
+  }
+
+  #doReverse(current: LinkedNode<T> | null) {
+    if (current === null) {
       return;
+    } else if (current.getNext() === null) {
+      this.head = current;
+      return current;
     }
-    let current = this.head;
-    let previous: LinkedNode<T> | null = null;
-    let next: LinkedNode<T> | null = null;
+    const next = this.#doReverse(current.getNext());
+    next!.linkNext(current);
+    current.linkNext(null);
 
-    while (current !== null) {
-      next = current.getNext();
-      current.linkNext(previous!);
-
-      previous = current;
-      current = next;
-    }
-
-    this.head = previous;
+    return current;
   }
 
   /**
@@ -266,10 +269,13 @@ class LinkedList<T> implements Streamable<T> {
    * ```
    */
   *stream(): Generator<T, void, unknown> {
-    let current = this.head;
-    while (current !== null) {
-      yield current.get();
-      current = current.getNext();
+    yield* this.#doStream(this.head);
+  }
+
+  *#doStream(node: LinkedNode<T> | null): Generator<T, void, unknown> {
+    if (node !== null) {
+      yield node.get();
+      yield* this.#doStream(node.getNext());
     }
   }
 
@@ -296,11 +302,7 @@ class LinkedList<T> implements Streamable<T> {
     return this.head;
   }
 
-  protected setHeadNode(head: LinkedNode<T> | undefined) {
-    if (head === undefined) {
-      this.head = null;
-      return;
-    }
+  protected setHeadNode(head: LinkedNode<T> | null) {
     this.head = head;
   }
 

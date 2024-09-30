@@ -12,7 +12,7 @@ import LinkedNode from "@src/datatypes/nodes/LinkedNode";
  * @extends LinkedNode
  */
 class DoublyLinkedNode<T> extends LinkedNode<T> {
-  private previous: DoublyLinkedNode<T> | undefined;
+  private previous: DoublyLinkedNode<T> | null;
 
   /**
    * Creates a new node with the given value.
@@ -27,6 +27,7 @@ class DoublyLinkedNode<T> extends LinkedNode<T> {
    */
   constructor(value: T) {
     super(value);
+    this.previous = null;
   }
 
   /**
@@ -41,7 +42,7 @@ class DoublyLinkedNode<T> extends LinkedNode<T> {
    * node.linkNext(nextNode);
    * ```
    */
-  linkNext(next: DoublyLinkedNode<T> | undefined) {
+  linkNext(next: DoublyLinkedNode<T> | null) {
     super.linkNext(next);
   }
 
@@ -58,7 +59,7 @@ class DoublyLinkedNode<T> extends LinkedNode<T> {
    * node.getNext(); // nextNode
    * ```
    */
-  getNext(): DoublyLinkedNode<T> | undefined {
+  getNext(): DoublyLinkedNode<T> | null {
     return super.getNext() as DoublyLinkedNode<T>;
   }
 
@@ -74,7 +75,7 @@ class DoublyLinkedNode<T> extends LinkedNode<T> {
    * node.linkPrevious(previousNode);
    * ```
    */
-  linkPrevious(previous: DoublyLinkedNode<T> | undefined) {
+  linkPrevious(previous: DoublyLinkedNode<T> | null) {
     this.previous = previous;
   }
 
@@ -91,7 +92,7 @@ class DoublyLinkedNode<T> extends LinkedNode<T> {
    * node.getPrevious(); // previousNode;
    * ```
    */
-  getPrevious(): DoublyLinkedNode<T> | undefined {
+  getPrevious(): DoublyLinkedNode<T> | null {
     return this.previous;
   }
 }
